@@ -32,10 +32,10 @@ public class UserRegisterController implements PageController {
 		if (StringUtils.isEmpty(request.getParameter("name"))) {
 			return "register.jsp";
 		}
-		System.out.println(UserRegisterController.class.getName() + ":" + userService.getAll());
 		User user = new User(request.getParameter("name"), request.getParameter("password"),
 				request.getParameter("email"), request.getParameter("phoneNumber"));
 		userService.register(user);
+		userService.getAll().forEach((e) -> System.out.println(UserRegisterController.class.getName() + ":" + e));
 		return "login-form.jsp";
 	}
 }
