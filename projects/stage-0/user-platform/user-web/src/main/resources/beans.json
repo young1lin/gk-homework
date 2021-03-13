@@ -1,0 +1,22 @@
+[
+  {
+    "name" : "dataSource",
+    "className" : "org.geektimes.context.CustomDataSource"
+  },
+  {
+    "name" : "dbConnectionManager",
+    "className" : "org.geektimes.projects.user.sql.DBConnectionManager"
+  },
+  {
+    "name" : "validator",
+    "className" : "org.geektimes.projects.user.validator.bean.validation.DelegatingValidator"
+  },
+  {
+    "name" : "userService",
+    "className" : "org.geektimes.projects.user.service.impl.UserServiceImpl"
+  },
+  {
+    "name" : "userRepository",
+    "className" : "org.geektimes.projects.user.repository.DatabaseUserRepository"
+  }
+]

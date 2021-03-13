@@ -1,27 +1,43 @@
 package org.geektimes.projects.user.domain;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Objects;
+
+import static javax.persistence.GenerationType.AUTO;
+
+import org.geektimes.projects.user.validator.bean.validation.UserValid;
+
 
 /**
  * 用户领域对象
  *
- * @author m & y
  * @since 1.0
  */
-public class User {
+@Entity
+@Table(name = "users")
+@UserValid
+public class User implements Serializable {
 
+	@Id
+	@GeneratedValue(strategy = AUTO)
+	@NotNull
 	private Long id;
 
+	@Column
 	private String name;
 
+	@Column
 	private String password;
 
+	@Column
 	private String email;
 
+	@Column
 	private String phoneNumber;
 
-	public User() {
-	}
+	public User(){}
 
 	public User(String name, String password, String email, String phoneNumber) {
 		this.name = name;

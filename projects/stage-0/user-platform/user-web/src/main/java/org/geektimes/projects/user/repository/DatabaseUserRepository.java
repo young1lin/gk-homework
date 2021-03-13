@@ -1,5 +1,6 @@
 package org.geektimes.projects.user.repository;
 
+import org.geektimes.context.CustomContext;
 import org.geektimes.function.ThrowableFunction;
 import org.geektimes.projects.user.domain.User;
 import org.geektimes.projects.user.sql.DBConnectionManager;
@@ -15,6 +16,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static org.apache.commons.lang.ClassUtils.wrapperToPrimitive;
+
+import javax.annotation.PostConstruct;
 
 public class DatabaseUserRepository implements UserRepository {
 
@@ -32,7 +35,16 @@ public class DatabaseUserRepository implements UserRepository {
 
 	public static final String QUERY_ALL_USERS_DML_SQL = "SELECT id,name,password,email,phoneNumber FROM users";
 
-	private final DBConnectionManager dbConnectionManager;
+	private DBConnectionManager dbConnectionManager;
+
+	public DatabaseUserRepository() {
+	}
+
+	@PostConstruct
+	public void init() {
+		this.dbConnectionManager = (DBConnectionManager) CustomContext.getInstance().getComponent("dbConnectionManager");
+
+	}
 
 	public DatabaseUserRepository(DBConnectionManager dbConnectionManager) {
 		this.dbConnectionManager = dbConnectionManager;

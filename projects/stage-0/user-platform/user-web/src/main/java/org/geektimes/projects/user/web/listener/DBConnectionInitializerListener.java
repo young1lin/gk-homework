@@ -12,6 +12,13 @@ import java.sql.Statement;
 
 import org.h2.tools.Server;
 
+/**
+ * 启动的时候，加载 H2
+ *
+ * @author young1lin
+ * @author mercyblitz
+ * @version 1.1
+ */
 public class DBConnectionInitializerListener implements ServletContextListener {
 
 	private Server server = null;
@@ -19,6 +26,7 @@ public class DBConnectionInitializerListener implements ServletContextListener {
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
 		try {
+			System.err.println("hibernate 版本过高，导致报错，找不到合适的版本，不想找");
 			System.out.println("正在启动h2...");
 			server = Server.createTcpServer(
 					new String[] {"-tcp", "-tcpAllowOthers", "-tcpPort",
