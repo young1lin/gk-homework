@@ -18,5 +18,9 @@
   {
     "name" : "userRepository",
     "className" : "org.geektimes.projects.user.repository.DatabaseUserRepository"
+  },
+  {
+    "name" : "javaConfig",
+    "className" : "org.geektimes.config.JavaConfig"
   }
 ]

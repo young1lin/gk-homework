@@ -2,7 +2,6 @@ package org.geektimes.projects.user.service.impl;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
-import javax.persistence.EntityManager;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 import java.util.Collection;

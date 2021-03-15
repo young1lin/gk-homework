@@ -14,6 +14,15 @@
     <name>User Web Application ${revision}</name>
     <packaging>war</packaging>
 
+<!--    &lt;!&ndash; Maven repository hosting Jolokia &ndash;&gt;-->
+<!--    <repositories>-->
+<!--        <repository>-->
+<!--            <id>labs-consol-release</id>-->
+<!--            <name>ConSol* Labs Repository (Releases)</name>-->
+<!--            <url>http://labs.consol.de/maven/repository</url>-->
+<!--        </repository>-->
+<!--    </repositories>-->
+
 
     <dependencies>
         <dependency>
@@ -74,6 +83,16 @@
             <groupId>org.glassfish</groupId>
             <artifactId>javax.el</artifactId>
             <version>3.0.1-b11</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.microprofile.config</groupId>
+            <artifactId>microprofile-config-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jolokia</groupId>
+            <artifactId>jolokia-core</artifactId>
         </dependency>
 
         <dependency>

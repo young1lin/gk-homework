@@ -10,6 +10,7 @@ import java.lang.reflect.Modifier;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -42,11 +43,10 @@ public class CustomContext {
 		this.classLoader = servletContext.getClassLoader();
 		instantiateComponents();
 		initializeComponents();
-		Object object = componentsMap.get("dbConnectionManager");
 	}
 
 	private void instantiateComponents() {
-		String beanJsonPath = this.getClass().getClassLoader().getResource("beans.json").getPath();
+		String beanJsonPath = Objects.requireNonNull(this.getClass().getClassLoader().getResource("beans.json")).getPath();
 		File jsonFile = new File(beanJsonPath);
 		ObjectMapper mapper = new ObjectMapper();
 		List<BeanDefinition> beanDefinitionList = null;
@@ -70,7 +70,7 @@ public class CustomContext {
 			return result;
 		}
 		try {
-			Class<?> clazz = Class.forName(className, true, Thread.currentThread().getContextClassLoader());
+			Class<?> clazz = Class.forName(className, true, classLoader);
 			result = clazz.newInstance();
 		}
 		catch (Exception e) {
@@ -88,9 +88,6 @@ public class CustomContext {
 			Class<?> componentClass = component.getClass();
 			// 注入阶段 - {@link Resource}
 			injectComponents(component, componentClass);
-		});
-		componentsMap.values().forEach(component ->{
-			Class<?> componentClass = component.getClass();
 			// 初始阶段 - {@link PostConstruct}
 			processPostConstruct(component, componentClass);
 		});
