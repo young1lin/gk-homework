@@ -1,4 +1,4 @@
-package org.geektimes.mbean;
+package org.geektimes.projects.user.jmx;
 
 /**
  * @author <a href="mailto:young1lin0108@gmail.com">young1lin</a>

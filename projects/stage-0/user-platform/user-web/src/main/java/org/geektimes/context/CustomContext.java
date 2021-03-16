@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @since 2021/3/10 下午9:19
  * @version 1.0
  */
-public class CustomContext {
+public class CustomContext implements Context {
 
 	public static final String CONTEXT_NAME = CustomContext.class.getName();
 
@@ -32,6 +33,8 @@ public class CustomContext {
 
 	private final Map<String, Object> componentsMap = new LinkedHashMap<>();
 
+	/** runner 类们 */
+	private List<ContextRunner> contextRunners;
 
 	public static CustomContext getInstance() {
 		return (CustomContext) servletContext.getAttribute(CONTEXT_NAME);
@@ -43,6 +46,8 @@ public class CustomContext {
 		this.classLoader = servletContext.getClassLoader();
 		instantiateComponents();
 		initializeComponents();
+		initializeBeanPostProcessors();
+		run(this);
 	}
 
 	private void instantiateComponents() {
@@ -132,11 +137,26 @@ public class CustomContext {
 		});
 	}
 
+	private void initializeBeanPostProcessors() {
+		contextRunners = new ArrayList<>();
+		componentsMap.keySet().forEach(e -> {
+			Object object = componentsMap.get(e);
+			if (object instanceof ContextRunner) {
+				contextRunners.add((ContextRunner) object);
+			}
+		});
+	}
+
+	private void run(CustomContext customContext) {
+		contextRunners.forEach(e -> e.run(customContext));
+	}
+
 	/**
 	 * 根据组件名称，获得对应的组件
 	 * @param componentName 组件名称
 	 * @return 组件实例
 	 */
+	@Override
 	public Object getComponent(String componentName) {
 		return componentsMap.get(componentName);
 	}

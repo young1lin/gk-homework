@@ -1,26 +1,34 @@
 [
   {
-    "name" : "dataSource",
-    "className" : "org.geektimes.context.CustomDataSource"
+    "name": "dataSource",
+    "className": "org.geektimes.context.CustomDataSource"
   },
   {
-    "name" : "dbConnectionManager",
-    "className" : "org.geektimes.projects.user.sql.DBConnectionManager"
+    "name": "dbConnectionManager",
+    "className": "org.geektimes.projects.user.sql.DBConnectionManager"
   },
   {
-    "name" : "validator",
-    "className" : "org.geektimes.projects.user.validator.bean.validation.DelegatingValidator"
+    "name": "validator",
+    "className": "org.geektimes.projects.user.validator.bean.validation.DelegatingValidator"
   },
   {
-    "name" : "userService",
-    "className" : "org.geektimes.projects.user.service.impl.UserServiceImpl"
+    "name": "userService",
+    "className": "org.geektimes.projects.user.service.impl.UserServiceImpl"
   },
   {
-    "name" : "userRepository",
-    "className" : "org.geektimes.projects.user.repository.DatabaseUserRepository"
+    "name": "userRepository",
+    "className": "org.geektimes.projects.user.repository.DatabaseUserRepository"
   },
   {
-    "name" : "javaConfig",
-    "className" : "org.geektimes.config.JavaConfig"
+    "name": "javaConfig",
+    "className": "org.geektimes.config.JavaConfig"
+  },
+  {
+    "name": "userMBean",
+    "className": "org.geektimes.projects.user.jmx.User"
+  },
+  {
+    "name": "registerUserMBeanContextRunner",
+    "className": "org.geektimes.projects.user.jmx.RegisterUserMBeanContextRunner"
   }
 ]
