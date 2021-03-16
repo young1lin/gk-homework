@@ -16,7 +16,7 @@ import org.eclipse.microprofile.config.Config;
 import org.eclipse.microprofile.config.ConfigValue;
 import org.eclipse.microprofile.config.spi.ConfigSource;
 import org.eclipse.microprofile.config.spi.Converter;
-import org.geektimes.config.convert.*;
+import org.geektimes.config.converter.*;
 
 /**
  * @author <a href="mailto:young1lin0108@gmail.com">young1lin</a>

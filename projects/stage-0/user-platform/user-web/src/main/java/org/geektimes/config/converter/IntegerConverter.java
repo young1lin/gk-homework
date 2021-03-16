@@ -1,4 +1,4 @@
-package org.geektimes.config.convert;
+package org.geektimes.config.converter;
 
 import org.eclipse.microprofile.config.spi.Converter;
 
