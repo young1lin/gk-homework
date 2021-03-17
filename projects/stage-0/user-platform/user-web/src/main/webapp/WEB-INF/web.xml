@@ -38,6 +38,18 @@
         <param-value>-tcpAllowOthers</param-value>
     </context-param>
 
+    <!-- h2控制台配置开始，生产环境中请屏蔽 -->
+
+    <servlet>
+        <servlet-name>H2Console</servlet-name>
+        <servlet-class>org.h2.server.web.WebServlet</servlet-class>
+        <init-param>
+            <param-name>-webAllowOthers</param-name>
+            <param-value></param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
     <servlet>
         <servlet-name>jolokia-agent</servlet-name>
         <servlet-class>org.jolokia.http.AgentServlet</servlet-class>
@@ -64,6 +76,12 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
 
+    <servlet-mapping>
+        <servlet-name>H2Console</servlet-name>
+        <url-pattern>/h2/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- h2控制台配置结束-->
     <!-- The mapping for the default servlet -->
     <servlet-mapping>
         <servlet-name>default</servlet-name>
