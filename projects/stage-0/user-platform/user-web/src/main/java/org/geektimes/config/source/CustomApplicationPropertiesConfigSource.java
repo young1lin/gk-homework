@@ -20,17 +20,18 @@ public class CustomApplicationPropertiesConfigSource implements ConfigSource {
 
 	public CustomApplicationPropertiesConfigSource() {
 		this.properties = new HashMap<>();
-		InputStream inputStream = getClass().getClassLoader().getResourceAsStream("application.properties");
-		Properties proTmp = new Properties();
-		try {
+		Properties proTmp = null;
+		try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("application.properties")) {
+			proTmp = new Properties();
 			proTmp.load(inputStream);
 		}
 		catch (IOException e) {
 			e.printStackTrace();
 		}
 		Set<String> strings = proTmp.stringPropertyNames();
+		Properties finalProTmp = proTmp;
 		strings.forEach(key -> {
-			String value = proTmp.getProperty(key);
+			String value = finalProTmp.getProperty(key);
 			properties.put(key, value);
 		});
 	}
