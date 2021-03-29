@@ -1,6 +1,6 @@
 package org.geektimes.projects.user.repository;
 
-import org.geektimes.context.CustomContext;
+import org.geektimes.context.core.support.DefaultCustomContext;
 import org.geektimes.function.ThrowableFunction;
 import org.geektimes.projects.user.domain.User;
 import org.geektimes.projects.user.sql.DBConnectionManager;
@@ -42,7 +42,7 @@ public class DatabaseUserRepository implements UserRepository {
 
 	@PostConstruct
 	public void init() {
-		this.dbConnectionManager = (DBConnectionManager) CustomContext.getInstance().getComponent("dbConnectionManager");
+		this.dbConnectionManager = (DBConnectionManager) DefaultCustomContext.getInstance().getComponent("dbConnectionManager");
 
 	}
 

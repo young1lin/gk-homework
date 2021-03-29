@@ -7,7 +7,7 @@ import javax.validation.Validator;
 import java.util.Collection;
 import java.util.Set;
 
-import org.geektimes.context.CustomContext;
+import org.geektimes.context.core.support.DefaultCustomContext;
 import org.geektimes.projects.user.domain.User;
 import org.geektimes.projects.user.repository.DatabaseUserRepository;
 import org.geektimes.projects.user.repository.UserRepository;
@@ -25,12 +25,13 @@ public class UserServiceImpl implements UserService {
 	@Resource(name = "validator")
 	private Validator validator;
 
+
 	public UserServiceImpl() {
 	}
 
 	@PostConstruct
 	public void init() {
-		this.repository = (DatabaseUserRepository) CustomContext.getInstance().getComponent("databaseUserRepository");
+		this.repository = (DatabaseUserRepository) DefaultCustomContext.getInstance().getComponent("databaseUserRepository");
 	}
 
 	@Override

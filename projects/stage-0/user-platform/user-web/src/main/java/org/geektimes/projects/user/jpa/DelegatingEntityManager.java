@@ -22,7 +22,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-import org.geektimes.context.CustomContext;
+import org.geektimes.context.core.Context;
+import org.geektimes.context.core.support.DefaultCustomContext;
 
 /**
  * 加了这个，一堆 bug
@@ -57,7 +58,7 @@ public class DelegatingEntityManager implements EntityManager {
 			throw new RuntimeException(e);
 		}
 		// 增加 JNDI 引用处理
-		CustomContext context = CustomContext.getInstance();
+		Context context = DefaultCustomContext.getInstance();
 
 		for (String propertyName : properties.stringPropertyNames()) {
 			String propertyValue = properties.getProperty(propertyName);

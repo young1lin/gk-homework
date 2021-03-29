@@ -1,2 +1,3 @@
 org.geektimes.config.source.JavaSystemPropertiesConfigSource
 org.geektimes.config.source.CustomApplicationPropertiesConfigSource
+org.geektimes.config.source.OperationSystemEnvironmentVariablesConfigSource

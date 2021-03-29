@@ -6,17 +6,17 @@
 
     <groupId>org.geekbang.projects</groupId>
     <artifactId>user-platform</artifactId>
-    <name>User Platform ${revision}</name>
-    <version>${revision}</version>
+    <name>User Platform v1-SNAPSHOT</name>
+    <version>v1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
         <module>my-web-mvc</module>
         <module>user-web</module>
+        <module>user-injectors</module>
     </modules>
 
     <properties>
-        <revision>v1-SNAPSHOT</revision>
         <file.encoding>UTF-8</file.encoding>
         <project.build.sourceEncoding>${file.encoding}</project.build.sourceEncoding>
 
@@ -34,6 +34,11 @@
         <!-- MicroProfile 版本-->
         <microprofile-config-api.version>2.0</microprofile-config-api.version>
         <jolokia.version>1.3.6</jolokia.version>
+
+        <!-- Jackson 版本 -->
+        <jackson-core.version>2.9.6</jackson-core.version>
+        <jackson-annotations.version>2.9.6</jackson-annotations.version>
+        <jackson-databind.version>2.9.6</jackson-databind.version>
 
         <!-- Maven Plugins 版本 -->
         <maven.compiler.version>3.8.1</maven.compiler.version>
@@ -115,6 +120,22 @@
                 <groupId>org.eclipse.microprofile.config</groupId>
                 <artifactId>microprofile-config-api</artifactId>
                 <version>${microprofile-config-api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson-annotations.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson-databind.version}</version>
             </dependency>
 
             <dependency>

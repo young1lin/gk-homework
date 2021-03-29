@@ -1,7 +1,7 @@
 [
   {
     "name": "dataSource",
-    "className": "org.geektimes.context.CustomDataSource"
+    "className": "org.geektimes.db.CustomDataSource"
   },
   {
     "name": "dbConnectionManager",
@@ -18,10 +18,6 @@
   {
     "name": "userRepository",
     "className": "org.geektimes.projects.user.repository.DatabaseUserRepository"
-  },
-  {
-    "name": "javaConfig",
-    "className": "org.geektimes.config.JavaConfig"
   },
   {
     "name": "userMBean",

@@ -4,7 +4,7 @@ import javax.management.MBeanServer;
 import javax.management.ObjectName;
 import java.lang.management.ManagementFactory;
 
-import org.geektimes.context.Context;
+import org.geektimes.context.core.Context;
 import org.geektimes.context.ContextRunner;
 
 /**
@@ -17,7 +17,7 @@ public class RegisterUserMBeanContextRunner implements ContextRunner {
 	@Override
 	public void run(Context context) {
 		UserMBean user = (UserMBean) context.getComponent("userMBean");
-		System.out.println("current user attributes are : " + user);
+		System.out.println(this.getClass().getName() + ": current user attributes are : " + user);
 		try {
 			MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
 			ObjectName name = new ObjectName("org.geektimes.mbean:type=User");

@@ -26,4 +26,5 @@ public class BeanValidationDemo {
             System.out.println(c.getMessage());
         });
     }
+
 }

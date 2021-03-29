@@ -5,19 +5,20 @@
          http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          metadata-complete="true" version="2.5">
 
+    
     <listener>
-        <listener-class>
-            org.geektimes.projects.user.web.listener.DBConnectionInitializerListener
-        </listener-class>
+        <listener-class>org.geektimes.config.servlet.ServletContextConfigInitializer</listener-class>
     </listener>
-
+    
     <listener>
-        <listener-class>
-            org.geektimes.projects.user.web.listener.ComponentContextInitializerListener
-        </listener-class>
+        <listener-class>org.geektimes.projects.user.web.listener.DBConnectionInitializerListener</listener-class>
     </listener>
-
-    <!--     h2 -->
+    
+    <listener>
+        <listener-class>org.geektimes.context.servlet.CustomContextInitializerListener</listener-class>
+    </listener>
+    
+    <!-- h2 -->
     <listener>
         <listener-class>org.h2.server.web.DbStarter</listener-class>
     </listener>
