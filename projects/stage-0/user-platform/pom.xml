@@ -14,6 +14,8 @@
         <module>my-web-mvc</module>
         <module>user-web</module>
         <module>user-injectors</module>
+        <module>reactive-streams</module>
+        <module>rest-client</module>
     </modules>
 
     <properties>
@@ -24,7 +26,13 @@
         <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
         <javax.ws.rs-api.version>2.0.1</javax.ws.rs-api.version>
         <jstl.version>1.2</jstl.version>
+        <javax.annotation-api.version>1.3.2</javax.annotation-api.version>
+        <javax.inject.version>1</javax.inject.version>
+        <javax.cdi-api.version>2.0</javax.cdi-api.version>
+
+
         <commons-lang.version>2.6</commons-lang.version>
+        <commons-io.version>2.4</commons-io.version>
         <commons-validator.version>1.7</commons-validator.version>
         <derby.version>10.1.3.1</derby.version>
         <derby.version>10.1.3.1</derby.version>
@@ -33,12 +41,21 @@
 
         <!-- MicroProfile 版本-->
         <microprofile-config-api.version>2.0</microprofile-config-api.version>
-        <jolokia.version>1.3.6</jolokia.version>
+        <microprofile-rest-client-api.version>2.0</microprofile-rest-client-api.version>
+        <microprofile-reactive-messaging-api.version>1.0
+        </microprofile-reactive-messaging-api.version>
 
+        <!-- 第三方依赖 -->
+        <!-- 关于 REST 访问 MBean 的 -->
+        <jolokia.version>1.3.6</jolokia.version>
         <!-- Jackson 版本 -->
         <jackson-core.version>2.9.6</jackson-core.version>
         <jackson-annotations.version>2.9.6</jackson-annotations.version>
         <jackson-databind.version>2.9.6</jackson-databind.version>
+        <activemq.version>5.9.1</activemq.version>
+
+        <!-- Testing 版本 -->
+        <junit.version>4.13</junit.version>
 
         <!-- Maven Plugins 版本 -->
         <maven.compiler.version>3.8.1</maven.compiler.version>
@@ -76,10 +93,38 @@
                 <version>${jstl.version}</version>
             </dependency>
 
+            <!-- Java Commons Annotations -->
+            <dependency>
+                <groupId>javax.annotation</groupId>
+                <artifactId>javax.annotation-api</artifactId>
+                <version>${javax.annotation-api.version}</version>
+            </dependency>
+
+            <!-- Java Inject API -->
+            <dependency>
+                <groupId>javax.inject</groupId>
+                <artifactId>javax.inject</artifactId>
+                <version>${javax.inject.version}</version>
+            </dependency>
+
+            <!-- Java CDI API -->
+            <dependency>
+                <groupId>javax.enterprise</groupId>
+                <artifactId>cdi-api</artifactId>
+                <version>${javax.cdi-api.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>commons-lang</groupId>
                 <artifactId>commons-lang</artifactId>
                 <version>${commons-lang.version}</version>
+            </dependency>
+
+            <!-- Apache Commons I/O -->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
             </dependency>
 
             <dependency>
@@ -123,6 +168,19 @@
             </dependency>
 
             <dependency>
+                <groupId>org.eclipse.microprofile.rest.client</groupId>
+                <artifactId>microprofile-rest-client-api</artifactId>
+                <version>${microprofile-rest-client-api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.eclipse.microprofile.reactive.messaging</groupId>
+                <artifactId>microprofile-reactive-messaging-api</artifactId>
+                <version>${microprofile-reactive-messaging-api.version}</version>
+            </dependency>
+
+            <!--  Jackson Dependency -->
+            <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-core</artifactId>
                 <version>${jackson-core.version}</version>
@@ -142,6 +200,23 @@
                 <groupId>org.jolokia</groupId>
                 <artifactId>jolokia-core</artifactId>
                 <version>${jolokia.version}</version>
+            </dependency>
+
+            <!-- Apache ActiveMQ -->
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-all</artifactId>
+                <version>${activemq.version}</version>
+            </dependency>
+
+            <!-- Testing Dependencies -->
+
+            <!-- JUnit -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
             </dependency>
 
         </dependencies>

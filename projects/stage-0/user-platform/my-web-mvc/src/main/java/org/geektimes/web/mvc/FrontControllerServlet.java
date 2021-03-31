@@ -109,6 +109,7 @@ public class FrontControllerServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// 建立映射关系
 		// requestURI = /a/hello/world
+		System.out.println("当前请求方式是：" + request.getMethod());
 		String requestURI = request.getRequestURI();
 		// contextPath  = /a or "/" or ""
 		String servletContextPath = request.getContextPath();
