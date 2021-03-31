@@ -110,6 +110,9 @@ public class FrontControllerServlet extends HttpServlet {
 		// 建立映射关系
 		// requestURI = /a/hello/world
 		System.out.println("当前请求方式是：" + request.getMethod());
+		if ("POST".equals(request.getMethod())) {
+			System.out.println("当前请求的参数是\r" + getParamsString(request.getParameterMap()));
+		}
 		String requestURI = request.getRequestURI();
 		// contextPath  = /a or "/" or ""
 		String servletContextPath = request.getContextPath();
@@ -172,6 +175,22 @@ public class FrontControllerServlet extends HttpServlet {
 				}
 			}
 		}
+	}
+
+	private String getParamsString(Map<String, String[]> parameterMap) {
+		StringBuilder sb = new StringBuilder();
+		parameterMap.forEach((k, v) -> {
+			sb.append(k)
+					.append("=");
+			if (v != null && v.length == 1) {
+				sb.append(v[0]);
+			}
+			else {
+				sb.append(Arrays.toString(v));
+			}
+			sb.append("\t");
+		});
+		return sb.toString();
 	}
 
 //    private void beforeInvoke(Method handleMethod, HttpServletRequest request, HttpServletResponse response) {
