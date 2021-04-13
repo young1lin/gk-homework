@@ -44,6 +44,7 @@ public class LectureTest {
 		value1 = "2";
 		cache.put(key, value1);
 		String value2 = cache.get(key);
+		cache.put(key, value1);
 		assertEquals(value1, value2);
 		cache.remove(key);
 		assertNull(cache.get(key));
