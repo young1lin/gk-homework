@@ -70,7 +70,7 @@ public class CachingTest {
 
         Integer value2 = cache.get(key);
         assertEquals(value1, value2);
-        cache.remove(key);
+        //cache.remove(key);
         assertNull(cache.get(key));
     }
 
