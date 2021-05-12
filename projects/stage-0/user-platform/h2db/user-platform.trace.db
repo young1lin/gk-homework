@@ -1,9 +1,0 @@
-05-12 21:42:25 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLException: Table "INGREDIENT" not found; SQL statement:
-select * from Ingredient; [42102-175]
-05-12 21:48:38 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLException: Table "INGREDIENT" not found; SQL statement:
-select * from Ingredient; [42102-175]
-05-12 21:49:03 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLException: Table "INGREDIENT" not found; SQL statement:
-select * from Ingredient; [42102-175]
