@@ -21,15 +21,12 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
 import org.springframework.core.env.Environment;
@@ -55,7 +52,8 @@ import javax.sql.DataSource;
 public class MyBatisBeanDefinitionRegistrar
 		implements ImportBeanDefinitionRegistrar, EnvironmentAware {
 
-	private static final Logger logger = LoggerFactory.getLogger(MyBatisBeanDefinitionRegistrar.class);
+	private static final Logger logger =
+			LoggerFactory.getLogger(MyBatisBeanDefinitionRegistrar.class);
 
 
 	private Environment environment;
@@ -70,6 +68,7 @@ public class MyBatisBeanDefinitionRegistrar
 	public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata,
 			BeanDefinitionRegistry registry) {
 		DefaultListableBeanFactory factory = (DefaultListableBeanFactory) registry;
+		// 提前依赖查找主要的数据源，提前注入
 		DataSource dataSource = factory.getBean(DataSource.class);
 		BeanDefinitionBuilder beanDefinitionBuilder =
 				genericBeanDefinition(SqlSessionFactoryBean.class);

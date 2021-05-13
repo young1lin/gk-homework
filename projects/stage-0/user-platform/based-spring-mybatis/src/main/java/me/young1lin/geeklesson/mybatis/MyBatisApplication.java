@@ -22,12 +22,13 @@ import org.springframework.core.annotation.AnnotatedElementUtils;
 public class MyBatisApplication {
 
 	public static void main(String[] args) {
+		// 只是展示 @AliasFor 的一种用法
 		MapperScan mapperScan = AnnotatedElementUtils.getMergedAnnotation(MyBatisApplication.class, MapperScan.class);
 		assert mapperScan != null;
 		System.out.println(mapperScan.basePackages()[0]);
 		AnnotationConfigServletWebServerApplicationContext context = (AnnotationConfigServletWebServerApplicationContext) SpringApplication.run(MyBatisApplication.class);
 		IngredientMapper mapper = context.getBean(IngredientMapper.class);
-		mapper.getAll().forEach(System.out::println);
+		mapper.listAll().forEach(System.out::println);
 	}
 
 }

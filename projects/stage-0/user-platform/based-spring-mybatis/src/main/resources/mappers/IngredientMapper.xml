@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="me.young1lin.geeklesson.mybatis.mapper.IngredientMapper">
 
-    <select id="getAll" resultType="me.young1lin.geeklesson.mybatis.domain.Ingredient">
+    <select id="listAll" resultType="me.young1lin.geeklesson.mybatis.domain.Ingredient">
         select * from Ingredient;
     </select>
 

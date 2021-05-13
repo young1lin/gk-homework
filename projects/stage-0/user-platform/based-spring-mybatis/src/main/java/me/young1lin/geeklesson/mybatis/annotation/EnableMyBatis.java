@@ -30,8 +30,6 @@ import java.lang.annotation.*;
  * 激活 MyBatis
  *
  * @author <a href="mailto:mercyblitz@gmail.com">Mercy</a>
- * @since TODO
- * Date : 2021-05-06
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)

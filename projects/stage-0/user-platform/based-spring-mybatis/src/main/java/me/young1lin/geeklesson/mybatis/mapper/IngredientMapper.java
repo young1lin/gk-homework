@@ -16,6 +16,12 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface IngredientMapper {
 
-	List<Ingredient> getAll();
+	/**
+	 * 列出所有表中信息
+	 * 这个其实是写 《Spring In Action》的 demo 代码的表。
+	 *
+	 * @return 所有 Ingredient。
+	 */
+	List<Ingredient> listAll();
 
 }
