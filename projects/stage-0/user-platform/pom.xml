@@ -17,7 +17,8 @@
         <module>reactive-streams</module>
         <module>rest-client</module>
         <module>my-cache</module>
-    </modules>
+		<module>consistent-hash</module>
+	</modules>
 
     <properties>
         <file.encoding>UTF-8</file.encoding>

@@ -29,6 +29,7 @@ public class MyBatisApplication {
 		AnnotationConfigServletWebServerApplicationContext context = (AnnotationConfigServletWebServerApplicationContext) SpringApplication.run(MyBatisApplication.class);
 		IngredientMapper mapper = context.getBean(IngredientMapper.class);
 		mapper.listAll().forEach(System.out::println);
+		SpringApplication.exit(context);
 	}
 
 }

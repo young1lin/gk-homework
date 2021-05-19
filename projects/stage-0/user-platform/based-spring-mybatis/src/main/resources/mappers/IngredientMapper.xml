@@ -5,7 +5,8 @@
 <mapper namespace="me.young1lin.geeklesson.mybatis.mapper.IngredientMapper">
 
     <select id="listAll" resultType="me.young1lin.geeklesson.mybatis.domain.Ingredient">
-        select * from Ingredient;
+        select *
+        from Ingredient;
     </select>
 
 </mapper>
