@@ -28,6 +28,12 @@
 	<dependencies>
 
 		<dependency>
+			<groupId>org.geekbang.projects</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>v1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>

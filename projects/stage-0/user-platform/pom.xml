@@ -18,6 +18,7 @@
         <module>rest-client</module>
         <module>my-cache</module>
 		<module>consistent-hash</module>
+		<module>mybatis-spring-boot-starter</module>
 	</modules>
 
     <properties>

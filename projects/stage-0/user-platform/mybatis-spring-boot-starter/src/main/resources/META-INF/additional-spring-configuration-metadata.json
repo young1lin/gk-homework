@@ -1,0 +1,32 @@
+{
+  "properties": [
+    {
+      "name": "mybatis.mapperLocations",
+      "defaultValue": " "
+    },
+    {
+      "name": "mybatis.environment",
+      "defaultValue": "SqlSessionFactoryBean"
+    },
+    {
+      "name": "mybatis.sqlSessionBeanFactoryBeanName",
+      "defaultValue": "sqlSessionFactoryBean"
+    },
+    {
+      "name": "mybatis.configurationPropertiesPath",
+      "defaultValue": " "
+    },
+    {
+      "name": "mybatis.failFast",
+      "defaultValue": false
+    },
+    {
+      "name": "mybatis.typeAliasesPackage",
+      "defaultValue": " "
+    },
+    {
+      "name": "mybatis.typeHandlersPackage",
+      "defaultValue": " "
+    }
+  ]
+}

@@ -2,11 +2,12 @@ package me.young1lin.geeklesson.mybatis;
 
 import me.young1lin.geeklesson.mybatis.annotation.EnableMyBatis;
 import me.young1lin.geeklesson.mybatis.mapper.IngredientMapper;
+import me.young1lin.mybatis.spring.boot.starter.MyBatisAutoConfiguration;
 import org.mybatis.spring.annotation.MapperScan;
 
-import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.core.annotation.AnnotatedElementUtils;
 
 /**
@@ -18,7 +19,8 @@ import org.springframework.core.annotation.AnnotatedElementUtils;
 		basePackages = "me.young1lin.geeklesson.mybatis.mapper",
 		mapperLocations = {"classpath*:mappers/**/*.xml"},
 		environment = "development")
-@SpringBootApplication
+// 需要测试另一个时，把注释去掉即可，并且把另一个 SpringBootApplication 注解注释掉
+//@SpringBootApplication
 public class MyBatisApplication {
 
 	public static void main(String[] args) {
@@ -26,10 +28,12 @@ public class MyBatisApplication {
 		MapperScan mapperScan = AnnotatedElementUtils.getMergedAnnotation(MyBatisApplication.class, MapperScan.class);
 		assert mapperScan != null;
 		System.out.println(mapperScan.basePackages()[0]);
-		AnnotationConfigServletWebServerApplicationContext context = (AnnotationConfigServletWebServerApplicationContext) SpringApplication.run(MyBatisApplication.class);
-		IngredientMapper mapper = context.getBean(IngredientMapper.class);
-		mapper.listAll().forEach(System.out::println);
-		SpringApplication.exit(context);
+		new SpringApplicationBuilder(MyBatisAutoConfiguration.class)
+				.web(WebApplicationType.NONE)
+				.run()
+				.getBean(IngredientMapper.class)
+				.listAll()
+				.forEach(System.out::println);
 	}
 
 }

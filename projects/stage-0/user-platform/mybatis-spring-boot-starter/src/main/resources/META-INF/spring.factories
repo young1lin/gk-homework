@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+me.young1lin.mybatis.spring.boot.starter.MyBatisAutoConfiguration
