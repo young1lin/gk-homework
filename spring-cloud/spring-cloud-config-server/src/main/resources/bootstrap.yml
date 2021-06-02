@@ -1,9 +1,14 @@
 spring:
+  profiles:
+    active: 'native,file'
+  config:
+    name: youngl1in
   application:
-    name: young1lin-test-config
+    name: young1lin-test-application
   cloud:
     config:
+      profile: file
       server:
         file:
           file-path: '${user.dir}/spring-cloud-config-server/src/main/resources/META-INF/config/default.properties'
-      profile: file
+        bootstrap: true

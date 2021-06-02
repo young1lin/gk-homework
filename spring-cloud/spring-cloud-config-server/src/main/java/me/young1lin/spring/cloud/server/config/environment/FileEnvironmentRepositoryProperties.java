@@ -1,16 +1,18 @@
-package me.young1lin.spring.cloud.server.config;
+package me.young1lin.spring.cloud.server.config.environment;
 
 import java.util.Objects;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * @author <a href="mailto:young1lin0108@gmail.com">young1lin</a>
  * @since 2021/6/1 下午11:43
  * @version 1.0
  */
+@Configuration
 @ConfigurationProperties("spring.cloud.config.server.file")
-public class FileEnvironmentRepositoryProperties{
+public class FileEnvironmentRepositoryProperties {
 
 	private int order;
 

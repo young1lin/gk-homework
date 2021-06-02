@@ -1,7 +1,8 @@
-package me.young1lin.spring.cloud.server.config;
+package me.young1lin.spring.cloud.server.config.environment;
 
+import org.springframework.cloud.config.server.environment.EnvironmentRepository;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.ConfigurableEnvironment;
 
 /**
@@ -9,11 +10,11 @@ import org.springframework.core.env.ConfigurableEnvironment;
  * @since 2021/6/1 下午11:54
  * @version 1.0
  */
-@Profile("file")
+@Configuration
 public class FileRepositoryConfiguration {
 
 	@Bean
-	public FileEnvironmentRepository fileEnvironmentRepository(
+	public EnvironmentRepository fileEnvironmentRepository(
 			ConfigurableEnvironment configurableEnvironment,
 			FileEnvironmentRepositoryProperties fileEnvironmentRepositoryProperties) {
 		return new FileEnvironmentRepository(configurableEnvironment,

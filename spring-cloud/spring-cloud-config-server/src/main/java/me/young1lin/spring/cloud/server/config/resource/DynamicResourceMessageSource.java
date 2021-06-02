@@ -75,7 +75,7 @@ public class DynamicResourceMessageSource extends AbstractMessageSource implemen
 
 
 	public DynamicResourceMessageSource(String filePath) {
-		this.resourceFileName = filePath.substring(filePath.lastIndexOf("/"));
+		this.resourceFileName = filePath.substring(filePath.lastIndexOf("/") + 1);
 		this.resourcePath = filePath;
 		this.messagePropertiesResource = getMessagePropertiesResource();
 		this.messageProperties = loadMessageProperties();
@@ -85,7 +85,8 @@ public class DynamicResourceMessageSource extends AbstractMessageSource implemen
 	}
 
 	private void onMessagePropertiesChanged() {
-		if (this.messagePropertiesResource.isFile()) { // 判断是否为文件
+		// 判断是否为文件
+		if (this.messagePropertiesResource.isFile()) {
 			// 获取对应文件系统中的文件
 			try {
 				File messagePropertiesFile = this.messagePropertiesResource.getFile();
