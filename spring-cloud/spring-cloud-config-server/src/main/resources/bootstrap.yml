@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: young1lin-test-config
+  cloud:
+    config:
+      server:
+        file:
+          file-path: '${user.dir}/spring-cloud-config-server/src/main/resources/META-INF/config/default.properties'
+      profile: file

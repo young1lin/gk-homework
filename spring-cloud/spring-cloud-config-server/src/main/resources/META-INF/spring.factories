@@ -1,0 +1,4 @@
+org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+ me.young1lin.spring.cloud.server.config.FileRepositoryConfiguration\
+me.young1lin.spring.cloud.server.config.FileEnvironmentRepositoryProperties\
+me.young1lin.spring.cloud.server.config.locator.FilePropertySourceLocator
