@@ -47,3 +47,17 @@ mvn -Pnative package
 ```
 
 在 project 下执行该命令即可，打包需要很久。
+
+# 第十六周作业
+
+我已经按照官方文档，在 Ubuntu 环境下，将项目打包了，所以这里执行的是 Ubuntu 下可执行的文件。
+
+Dockerfile 里面写的就是 `FROM ubuntu18.04`
+
+在这个[文件夹下](/spring-native-demo-project-ubuntu/target1)，开启 dos 窗口，依次执行下面命令即可（记得打开 Docker）。
+
+```shell
+docker build -t young1lin/native-project .
+
+docker run -d --name native-project -p 8080:8080 young1lin/native-project
+```
